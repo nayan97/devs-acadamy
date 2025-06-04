@@ -39,9 +39,12 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-2">
-                 
+                  
+                        <Link to="/login" className="btn">Login</Link>
+                        <Link to="/register" className="btn btn-success">register</Link>
+                    
                 </div>
-                </div>
+            </div>
         </div>
     );
 };

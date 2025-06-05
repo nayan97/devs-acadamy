@@ -3,7 +3,18 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const Header = () => {
-  const { user } = use(AuthContext);
+  const { user, logoutUser } = use(AuthContext);
+      const handleLogout = () =>{
+        logoutUser()
+            .then(() =>{
+                console.log('logout successfully');
+                
+            })
+            .catch(error => {
+                console.log(error)
+            })
+       }
+
   const links = (
     <>
       <li>
@@ -54,8 +65,8 @@ const Header = () => {
         </div>
         <div className="navbar-end flex gap-2">
           {user ? (
-            <button className="btn">Logout</button>
-          ) : (
+            <button onClick={handleLogout}  className="btn">Logout</button>
+          ) : ( 
             <>
               <NavLink to="/login" className="btn">
                 Login

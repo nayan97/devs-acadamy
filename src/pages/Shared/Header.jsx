@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const Header = () => {
+  const { user } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -51,12 +53,18 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end flex gap-2">
-          <Link to="/login" className="btn">
-            Login
-          </Link>
-          <Link to="/register" className="btn btn-success">
-            register
-          </Link>
+          {user ? (
+            <button className="btn">Logout</button>
+          ) : (
+            <>
+              <NavLink to="/login" className="btn">
+                Login
+              </NavLink>
+              <NavLink to="/register" className="btn btn-accent  text-white">
+                Register
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "motion/react"
 import team1 from '../../assets/team/team_1.jpg'
 import team2 from '../../assets/team/team_2.jpg'
 

@@ -2,6 +2,7 @@ import React, {use} from "react";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../assets/LotteJson/lottereg.json";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import Social from './Social';
 
 const Register = () => {
     const {createUser} = use(AuthContext);
@@ -66,6 +67,7 @@ const Register = () => {
                   <button className="btn btn-neutral mt-4">Register</button>
                 </fieldset>
               </form>
+              <Social></Social>
             </div>
           </div>
         </div>

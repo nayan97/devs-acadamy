@@ -1,0 +1,65 @@
+import React from "react";
+import { motion } from "motion/react";
+
+const features = [
+  {
+    title: "WordPress Theme Development",
+    category: "Design, Web Development",
+    lessons: 20,
+    duration: "30 Hours",
+    level: "All Levels",
+    image: "https://i.ibb.co/DP6y68Xp/fotwoobvkektaekkzj3q.jpg",
+    buttonText: "All Details",
+  },
+  {
+    title: "Meta Marketing (Basic to Advance)",
+    category: "Design, Web Development",
+    lessons: 20,
+    duration: "30 Hours",
+    level: "All Levels",
+    image: "https://i.ibb.co/hFRB0WYF/course-1662724358.jpg", 
+    buttonText: "All Details",
+  },
+  {
+    title: "eCommerce & Product (Software) SEO",
+    category: "Design, Web Development",
+    lessons: 20,
+    duration: "30 Hours",
+    level: "All Levels",
+    image: "https://i.ibb.co/ZpNHK0tb/seo-courses.jpg",
+    buttonText: "All Details",
+  },
+];
+
+const Featured = () => {
+  return (
+    <div>
+      <section className="py-10 px-5">
+        <h2 className="text-2xl font-bold mb-6 text-center">Features</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {features.map((course, index) => (
+            <div key={index} className="bg-white p-4 rounded-xl shadow">
+              <img
+                src={course.image}
+                alt={course.title}
+                className="rounded-lg mb-3"
+              />
+              <p className="text-sm text-gray-500">{course.category}</p>
+              <h3 className="text-lg font-semibold truncate">{course.title}</h3>
+              <div className="flex justify-between text-sm text-gray-600 mt-2">
+                <span>📄 {course.lessons} Lessons</span>
+                <span>⏱ {course.duration}</span>
+              </div>
+              <p className="text-sm mt-1">📈 {course.level}</p>
+              <button className="mt-3 w-full bg-gray-100 py-2 rounded-md hover:bg-gray-200 transition">
+                {course.buttonText} →
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Featured;

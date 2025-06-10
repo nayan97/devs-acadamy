@@ -45,13 +45,13 @@ const Featured = () => {
                 className="rounded-lg mb-3"
               />
               <p className="text-sm text-gray-500">{course.category}</p>
-              <h3 className="text-lg font-semibold truncate">{course.title}</h3>
-              <div className="flex justify-between text-sm text-gray-600 mt-2">
+              <h3 className="text-xl font-semibold truncate py-4">{course.title}</h3>
+              <div className="flex justify-between text-md text-gray-600 mt-2 pb-2 font-semibold">
                 <span>📄 {course.lessons} Lessons</span>
                 <span>⏱ {course.duration}</span>
               </div>
-              <p className="text-sm mt-1">📈 {course.level}</p>
-              <button className="mt-3 w-full bg-gray-100 py-2 rounded-md hover:bg-gray-200 transition">
+              <p className="text-sm mt-1 font-semibold ">📈 {course.level}</p>
+              <button className="font-semibold mt-3 w-full bg-gray-100 py-2 rounded-md hover:bg-gray-200 transition">
                 {course.buttonText} →
               </button>
             </div>

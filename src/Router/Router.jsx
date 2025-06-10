@@ -4,6 +4,7 @@ import Layouts from "../Layouts/Layouts";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
+import Add from "../pages/Assignment/Add";
 
 const Router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const Router = createBrowserRouter([
         path: "/login",
         Component: Login,
       },
+      {
+        path: "/addassignment",
+        Component: Add,
+      },
+      
     ],
   },
 ]);

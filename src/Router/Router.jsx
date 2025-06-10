@@ -5,6 +5,7 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import Add from "../pages/Assignment/Add";
+import ViewAssignment from "../pages/Assignment/ViewAssignment";
 
 const Router = createBrowserRouter([
   {
@@ -28,6 +29,13 @@ const Router = createBrowserRouter([
         path: "/addassignment",
         Component: Add,
       },
+
+      {
+        path: "/assignments",
+        loader: ()=> fetch('http://localhost:3000/assignment'),
+        Component: ViewAssignment,
+      },
+      
       
     ],
   },

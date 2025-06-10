@@ -133,14 +133,14 @@ const Add = () => {
         <input
           type="date"
           name="deadline"
-          classNameName="input input-accent w-full"
+          className="input input-accent w-full"
           required
         />
 
         <input
           type="email"
           name="userEmail"
-          classNameName="input input-accent w-full"
+          className="input input-accent w-full"
           value={user.email}
           readOnly
         />

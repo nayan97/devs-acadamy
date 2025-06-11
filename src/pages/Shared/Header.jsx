@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import ThemeToggle from "../../components/ThemeToggle";
 
 const Header = () => {
   const { user, logoutUser } = use(AuthContext);
@@ -66,6 +67,8 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end flex gap-2">
+
+           <ThemeToggle></ThemeToggle>
           {user ? (
             <>
               {" "}

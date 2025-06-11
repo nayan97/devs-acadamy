@@ -4,16 +4,15 @@ import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const Header = () => {
   const { user, logoutUser } = use(AuthContext);
-      const handleLogout = () =>{
-        logoutUser()
-            .then(() =>{
-                console.log('logout successfully');
-                
-            })
-            .catch(error => {
-                console.log(error)
-            })
-       }
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        console.log("logout successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const links = (
     <>
@@ -23,10 +22,10 @@ const Header = () => {
       <li>
         <NavLink to="/about">About</NavLink>
       </li>
-    <li>
+      <li>
         <NavLink to="/addassignment">Add Assignment</NavLink>
       </li>
-       <li>
+      <li>
         <NavLink to="/assignments">Assignment</NavLink>
       </li>
     </>
@@ -68,13 +67,46 @@ const Header = () => {
         </div>
         <div className="navbar-end flex gap-2">
           {user ? (
-            <button onClick={handleLogout}  className="btn">Logout</button>
-          ) : ( 
             <>
-              <NavLink to="/login" className="btn">
+              {" "}
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img src={user.photoURL} />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <a className="justify-between">{user.displayName}</a>
+                  </li>
+                  <li>
+                    <a className="justify-between">{user.email}</a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    {" "}
+                    <a href="/login" className="" onClick={handleLogout}>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              <NavLink className="btn" to="/login">
                 Login
               </NavLink>
-              <NavLink to="/register" className="btn btn-accent  text-white">
+              <NavLink className="btn btn-success text-white" to="/register">
                 Register
               </NavLink>
             </>

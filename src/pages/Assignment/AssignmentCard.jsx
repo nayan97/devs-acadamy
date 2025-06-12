@@ -1,9 +1,12 @@
 import React from "react";
+import { use } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const AssignmentCard = ({ assignment }) => {
-  const { _id, title, category, deadline, budget } = assignment;
+  const { user } = use(AuthContext);
+  const { _id, title, category, deadline, budget, userEmail } = assignment;
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -17,23 +20,37 @@ const AssignmentCard = ({ assignment }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(result.isConfirmed);
-      if (result.isConfirmed) {
-        fetch(`http://localhost:3000/assignment/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
+      //   console.log(result.isConfirmed);
+      // console.log(user.email);
 
-            if (data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your Assignment has been deleted.",
-                icon: "success",
-              });
-            }
-          });
+      if (user.email == userEmail) {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:3000/assignment/${_id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+
+              if (data.deletedCount) {
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "Your Assignment has been deleted.",
+                  icon: "success",
+                });
+              }
+            });
+        }
+      } else {
+
+        // proteted other user data
+        
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Access Denied",
+          footer: '<p >You can not delete other user information </p>',
+        });
       }
     });
   };

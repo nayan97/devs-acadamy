@@ -5,12 +5,17 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import Add from "../pages/Assignment/Add";
+import PrivateRoute from './PrivateRoute';
 import ViewAssignment from "../pages/Assignment/ViewAssignment";
+import Spiner from '../components/Spiner';
+import ErrorPage from '../components/ErrorPage';
 
 const Router = createBrowserRouter([
   {
     path: "/",
     Component: Layouts,
+    hydrateFallbackElement: <Spiner></Spiner>,
+     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -27,7 +32,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addassignment",
-        Component: Add,
+        element: <PrivateRoute><Add></Add></PrivateRoute>,
       },
 
       {

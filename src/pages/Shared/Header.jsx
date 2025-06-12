@@ -18,16 +18,15 @@ const Header = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Home</NavLink>
       </li>
+        {user && <>
+        
+          <li><NavLink to="/addassignment" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Add Assignment</NavLink></li>
+          </>}
+  
       <li>
-        <NavLink to="/about">About</NavLink>
-      </li>
-      <li>
-        <NavLink to="/addassignment">Add Assignment</NavLink>
-      </li>
-      <li>
-        <NavLink to="/assignments">Assignment</NavLink>
+        <NavLink to="/assignments" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Assignment</NavLink>
       </li>
     </>
   );

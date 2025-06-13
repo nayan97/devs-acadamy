@@ -8,6 +8,7 @@ import Add from "../pages/Assignment/Add";
 import PrivateRoute from "./PrivateRoute";
 import ViewAssignment from "../pages/Assignment/ViewAssignment";
 import AssUpdate from "../pages/Assignment/AssUpdate";
+import AssDetail from "../pages/Assignment/AssDetail";
 import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
 
@@ -48,6 +49,16 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/ass_details/:id",
+         loader: ({params}) => fetch(`http://localhost:3000/assignment/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <AssDetail></AssDetail>
+          </PrivateRoute>
+        ),
+      },
+
 
       {
         path: "/assignments",

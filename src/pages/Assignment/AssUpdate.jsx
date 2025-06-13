@@ -1,13 +1,53 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const AssUpdate = () => {
   const { user } = use(AuthContext);
-  const { _id, title, thumbnail, deadline, userEmail, description, marks, difficulty } = useLoaderData();
+       const navigate = useNavigate();
+  const {
+    _id,
+    title,
+    thumbnail,
+    deadline,
+    userEmail,
+    description,
+    marks,
+    difficulty,
+  } = useLoaderData();
 
   const handleUpdate = (e) => {
     e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const updateAssignment = Object.fromEntries(formData.entries());
+    console.log(updateAssignment);
+
+     // send updated data into db
+    fetch(`http://localhost:3000/assignment/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateAssignment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          console.log("added");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Data has been updated",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+
+          navigate("/assignments");
+        }
+      });
   };
 
   return (
@@ -93,7 +133,7 @@ const AssUpdate = () => {
           >
             Difficulty Level
           </label>
-   
+
           <select
             name="difficulty"
             defaultValue={difficulty}

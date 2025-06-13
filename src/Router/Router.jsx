@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ViewAssignment from "../pages/Assignment/ViewAssignment";
 import AssUpdate from "../pages/Assignment/AssUpdate";
 import AssDetail from "../pages/Assignment/AssDetail";
+import SubmitAssignment from "../pages/Assignment/SubmitAssignment";
 import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
 
@@ -58,6 +59,16 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+         {
+        path: "/submit_assignment/:id",
+         loader: ({params}) => fetch(`http://localhost:3000/assignment/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <SubmitAssignment></SubmitAssignment>
+          </PrivateRoute>
+        ),
+      },
+
 
 
       {

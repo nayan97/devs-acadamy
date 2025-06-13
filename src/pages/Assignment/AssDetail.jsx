@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const AssDetail = () => {
       const assignment = useLoaderData();
 
   const {
+    _id,
     title,
     description,
     marks,
@@ -41,9 +42,11 @@ return (
 
           <p className="text-gray-700 leading-relaxed">{description}</p>
 
+         <Link to={`/submit_assignment/${_id}`}>
           <button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition duration-200">
             Submit Assignment
           </button>
+         </Link>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const AssUpdate = () => {
   const { user } = use(AuthContext);
-       const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     _id,
     title,
@@ -25,29 +25,36 @@ const AssUpdate = () => {
     const updateAssignment = Object.fromEntries(formData.entries());
     console.log(updateAssignment);
 
-     // send updated data into db
-    fetch(`http://localhost:3000/assignment/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateAssignment),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          console.log("added");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your Data has been updated",
-            showConfirmButton: false,
-            timer: 2000,
-          });
+    // send updated data into db
+    if (user.email === userEmail) {
+      fetch(`http://localhost:3000/assignment/${_id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateAssignment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount) {
+            console.log("added");
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Your Data has been updated",
+              showConfirmButton: false,
+              timer: 2000,
+            });
 
-          navigate("/assignments");
-        }
+            navigate("/assignments");
+          }
+        });
+    } else {
+      Swal.fire({
+        icon: "error",
+        text: "Make sure you are the athor of this item. You can not access other user data",
       });
+    }
   };
 
   return (
@@ -57,6 +64,7 @@ const AssUpdate = () => {
         className="bg-white p-8 rounded-2xl shadow-md w-full space-y-6"
       >
         <h2 className="text-2xl font-bold text-gray-800">Update Assignment</h2>
+        <h2 className="text-2xl font-bold text-gray-800">Athor: <span className="text-amber-700">{user.email}</span> </h2>
 
         <div>
           <label
@@ -159,7 +167,7 @@ const AssUpdate = () => {
           type="email"
           name="userEmail"
           className="input input-accent w-full"
-          defaultValue={user.email}
+          defaultValue={userEmail}
           readOnly
         />
 

@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
-const AssignmentCard = ({ assignment }) => {
+const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
   const { user } = use(AuthContext);
   const { _id, title, category, deadline, budget, userEmail } = assignment;
 
@@ -38,6 +38,9 @@ const AssignmentCard = ({ assignment }) => {
                   text: "Your Assignment has been deleted.",
                   icon: "success",
                 });
+                // remove the tasks from state
+                    const remainingAssignments = assignments.filter(ass => ass._id !== _id);
+                    setAssignments(remainingAssignments);
               }
             });
         }

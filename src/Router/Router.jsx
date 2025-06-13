@@ -5,17 +5,18 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import Add from "../pages/Assignment/Add";
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from "./PrivateRoute";
 import ViewAssignment from "../pages/Assignment/ViewAssignment";
-import Spiner from '../components/Spiner';
-import ErrorPage from '../components/ErrorPage';
+import AssUpdate from "../pages/Assignment/AssUpdate";
+import Spiner from "../components/Spiner";
+import ErrorPage from "../components/ErrorPage";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     Component: Layouts,
     hydrateFallbackElement: <Spiner></Spiner>,
-     errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -25,23 +26,34 @@ const Router = createBrowserRouter([
         path: "/register",
         Component: Register,
       },
-      
+
       {
         path: "/login",
         Component: Login,
       },
       {
         path: "/addassignment",
-        element: <PrivateRoute><Add></Add></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Add></Add>
+          </PrivateRoute>
+        ),
+      },
+        {
+        path: "/ass_update/:id",
+         loader: ({params}) => fetch(`http://localhost:3000/assignment/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <AssUpdate></AssUpdate>
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "/assignments",
-        loader: ()=> fetch('http://localhost:3000/assignment'),
+        loader: () => fetch("http://localhost:3000/assignment"),
         Component: ViewAssignment,
       },
-      
-      
     ],
   },
 ]);

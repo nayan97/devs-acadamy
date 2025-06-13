@@ -99,7 +99,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
           </div>
         </div>
         <div className="join join-vertical p-6 space-y-2">
-          <Link to={`/assignments/${_id}`}>
+          <Link to={`/ass_update/${_id}`}>
             <button className="btn btn-success text-white join-item w-full">
               Details
             </button>
@@ -112,7 +112,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             Delete
           </button>
 
-          <Link to={`/assignments/${_id}`}>
+          <Link to={`/ass_update/${_id}`}>
             <button className="btn btn-success text-white join-item w-full">
               Update
             </button>

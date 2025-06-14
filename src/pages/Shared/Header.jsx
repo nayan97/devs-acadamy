@@ -18,12 +18,40 @@ const Header = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
+          }
+        >
+          Home
+        </NavLink>
       </li>
-  
+
       <li>
-        <NavLink to="/assignments" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Assignment</NavLink>
+        <NavLink
+          to="/assignments"
+          className={({ isActive }) =>
+            isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
+          }
+        >
+          Assignment
+        </NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/pendingassignment"
+              className={({ isActive }) =>
+                isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
+              }
+            >
+              Pending Assignment
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -62,19 +90,18 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end flex gap-2">
-
-           <ThemeToggle></ThemeToggle>
-               
-                    {" "}
-                    {
-                      user && <>
-                            <a href="/login" className="btn btn-error text-white" onClick={handleLogout}>
-                      Logout
-                    </a>
-                 
-                      </>
-                    }
-              
+          <ThemeToggle></ThemeToggle>{" "}
+          {user && (
+            <>
+              <a
+                href="/login"
+                className="btn btn-error text-white"
+                onClick={handleLogout}
+              >
+                Logout
+              </a>
+            </>
+          )}
           {user ? (
             <>
               {" "}
@@ -99,12 +126,25 @@ const Header = () => {
                     <a className="justify-between">{user.email}</a>
                   </li>
                   <li>
-                    <NavLink to="/addassignment" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Add Assignment</NavLink>
+                    <NavLink
+                      to="/addassignment"
+                      className={({ isActive }) =>
+                        isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
+                      }
+                    >
+                      Add Assignment
+                    </NavLink>
                   </li>
-                      <li>
-                    <NavLink to="/myassignment" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>My Assignment</NavLink>
+                  <li>
+                    <NavLink
+                      to="/myassignment"
+                      className={({ isActive }) =>
+                        isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
+                      }
+                    >
+                      My Assignment
+                    </NavLink>
                   </li>
-          
                 </ul>
               </div>
             </>

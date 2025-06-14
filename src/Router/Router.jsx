@@ -11,6 +11,7 @@ import AssUpdate from "../pages/Assignment/AssUpdate";
 import AssDetail from "../pages/Assignment/AssDetail";
 import SubmitAssignment from "../pages/Assignment/SubmitAssignment";
 import MyAssignment from "../pages/MyAssignment/MyAssignment";
+import PendingAssignment from "../pages/PendingAssignment/PendingAssignment"
 import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
 
@@ -39,6 +40,15 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Add></Add>
+          </PrivateRoute>
+        ),
+      },
+           {
+        path: "/pendingassignment",
+        loader: () => fetch(`http://localhost:3000/myassignment`),
+        element: (
+          <PrivateRoute>
+            <PendingAssignment></PendingAssignment>
           </PrivateRoute>
         ),
       },

@@ -114,7 +114,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
 
           <Link to={`/ass_update/${_id}`}>
             <button className="btn btn-success text-white join-item w-full">
-              Update
+              Edit
             </button>
           </Link>
         </div>

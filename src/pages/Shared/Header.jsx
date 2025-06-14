@@ -101,6 +101,9 @@ const Header = () => {
                   <li>
                     <NavLink to="/addassignment" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>Add Assignment</NavLink>
                   </li>
+                      <li>
+                    <NavLink to="/myassignment" className={({ isActive }) => (isActive ? "text-[#0EA106] font-bold m-2" : "m-2")}>My Assignment</NavLink>
+                  </li>
           
                 </ul>
               </div>

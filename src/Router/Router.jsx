@@ -10,6 +10,7 @@ import ViewAssignment from "../pages/Assignment/ViewAssignment";
 import AssUpdate from "../pages/Assignment/AssUpdate";
 import AssDetail from "../pages/Assignment/AssDetail";
 import SubmitAssignment from "../pages/Assignment/SubmitAssignment";
+import MyAssignment from "../pages/MyAssignment/MyAssignment";
 import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
 
@@ -38,6 +39,15 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Add></Add>
+          </PrivateRoute>
+        ),
+      },
+            {
+        path: "/myassignment",
+                 loader: () => fetch(`http://localhost:3000/myassignment`),
+        element: (
+          <PrivateRoute>
+            <MyAssignment></MyAssignment>
           </PrivateRoute>
         ),
       },

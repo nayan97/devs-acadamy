@@ -9,10 +9,10 @@ const PendingTable = ({item}) => {
       <td>{title}</td>
       <td>{Status}</td>
       <td>{marks}</td>
+
       <td>{userEmail}</td>
       <td>
-        
-          <Link to={`/ass_check/${_id}`}>
+          <Link to={`/check_assignment/${_id}`}>
             <button className="btn btn-success text-white join-item w-full">
               Give Mark
             </button>

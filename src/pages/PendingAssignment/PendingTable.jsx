@@ -29,7 +29,7 @@ const PendingTable = ({ item }) => {
                 });
               }
             }}
-            className="btn btn-success text-white join-item w-full"
+            className="btn bg-green-600 text-white join-item w-full"
           >
             Give Mark
           </button>

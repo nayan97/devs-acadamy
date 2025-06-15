@@ -164,7 +164,7 @@ const Header = () => {
               <NavLink className="btn" to="/login">
                 Login
               </NavLink>
-              <NavLink className="btn btn-success text-white" to="/register">
+              <NavLink className="btn bg-green-600 text-white" to="/register">
                 Register
               </NavLink>
             </>

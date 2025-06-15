@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const links = <>
         
-  <Link to="/"> <button className='m-2 btn btn-success text-white rounded-3xl'>Go Back Home Page</button></Link>
+  <Link to="/"> <button className='m-2 btn bg-green-600 text-white rounded-3xl'>Go Back Home Page</button></Link>
 
 </>
 

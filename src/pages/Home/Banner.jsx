@@ -29,7 +29,7 @@ const Banner = () => {
             <p className="py-6">
               Discover top-tier courses in WordPress Plugin Development
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn bg-green-600 text-white ">Get Started</button>
           </div>
         </div>
       </div>

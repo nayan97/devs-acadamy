@@ -6,7 +6,16 @@ import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
   const { user } = use(AuthContext);
-  const { _id, title, category, deadline, budget, userEmail } = assignment;
+  const {
+    _id,
+    title,
+    thumbnail,
+    deadline,
+    userEmail,
+    description,
+    marks,
+    difficulty,
+  } = assignment;
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -39,20 +48,21 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
                   icon: "success",
                 });
                 // remove the tasks from state
-                    const remainingAssignments = assignments.filter(ass => ass._id !== _id);
-                    setAssignments(remainingAssignments);
+                const remainingAssignments = assignments.filter(
+                  (ass) => ass._id !== _id
+                );
+                setAssignments(remainingAssignments);
               }
             });
         }
       } else {
-
         // proteted other user data
-        
+
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Access Denied",
-          footer: '<p >You can not delete other user information </p>',
+          footer: "<p >You can not delete other user information </p>",
         });
       }
     });
@@ -63,10 +73,13 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
         <div className="card-body">
           <div className="flex items-start gap-4">
             <div>
-              <h2 className="card-title text-base font-semibold">{title}</h2>
-              <p className="text-sm text-primary hover:underline cursor-pointer">
-                {category}
-              </p>
+                         <img
+          src={thumbnail}
+          alt={title}
+          className="min-w-[400px] h-44 object-cover"
+        />
+              <h2 className="card-title text-2xl font-bold py-3">{title}</h2>
+    
             </div>
           </div>
 
@@ -76,31 +89,15 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             </div>
 
             <div className="flex items-center gap-1">
-              <h1>Budget: {budget}$</h1>
+              <h1>Marks: {marks}</h1>
             </div>
           </div>
 
-          <div className="text-sm text-gray-500 mt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="inline h-4 w-4 mr-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14.752 11.168l-3.197-2.132a1.5 1.5 0 00-2.302 1.264v4.4a1.5 1.5 0 002.302 1.264l3.197-2.132a1.5 1.5 0 000-2.664z"
-              />
-            </svg>
-            3 Proposals
-          </div>
+          <div className="text-sm text-gray-500 mt-2">Level: {difficulty}</div>
         </div>
         <div className="join join-vertical p-6 space-y-2">
           <Link to={`/ass_details/${_id}`}>
-            <button className="btn btn-success text-white join-item w-full">
+            <button className="btn bg-green-600 text-white join-item w-full">
               Details
             </button>
           </Link>
@@ -113,7 +110,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
           </button>
 
           <Link to={`/ass_update/${_id}`}>
-            <button className="btn btn-success text-white join-item w-full">
+            <button className="btn bg-green-600 text-white join-item w-full">
               Edit
             </button>
           </Link>

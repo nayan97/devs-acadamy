@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import ThemeToggle from "../../components/ThemeToggle";
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const { user, logoutUser } = use(AuthContext);
@@ -52,12 +53,22 @@ const Header = () => {
           </li>
         </>
       )}
+      <li>
+        <NavLink
+          to="Aboutus"
+          className={({ isActive }) =>
+            isActive ? "text-[#0EA106] font-bold my-2" : "my-2"
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
     </>
   );
 
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
+    <div className="bg-base-100">
+      <div className="navbar shadow-sm w-xl md:w-3xl lg:w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,7 +95,7 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <Link to="/">daisyUI</Link>
+          <Link to="/"><img className="w-22" src={logo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

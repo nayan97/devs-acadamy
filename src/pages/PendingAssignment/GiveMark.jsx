@@ -39,7 +39,7 @@ const GiveMark = () => {
 
   return (
     <div className="max-w-xl mx-auto mt-10 bg-white p-8 rounded-xl shadow">
-      <h2 className="text-2xl font-bold mb-4">Give Mark</h2>
+      <h2 className="text-2xl font-bold mb-4">Evaluate Assignment</h2>
       <p><strong>Title:</strong> {submission.title}</p>
       <p><strong>Submitted By:</strong> {submission.userEmail}</p>
       <p className="mt-2">

@@ -35,7 +35,9 @@ const Featured = () => {
   return (
     <div>
       <section className="py-10 px-5">
-        <h2 className="text-2xl font-bold mb-6 text-center">Features</h2>
+            <div  className="text-center py-12">
+                    <h3  className="text-[#00BCFF] text-4xl font-bold">Our  <span  className="text-[#18181B]">Features</span></h3>
+                </div>
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((course, index) => (
             <div key={index} className="bg-white p-4 rounded-xl shadow">

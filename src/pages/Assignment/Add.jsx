@@ -8,8 +8,19 @@ const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-      const form = e.target;
-      const formData = new FormData(form);
+    const form = e.target;
+    const minLength = description.length >= 30;
+
+    if (!minLength) {
+      Swal.fire(
+        "Warning",
+        "Description length must be at least 30 characters",
+        "warning"
+      );
+      return;
+    }
+
+    const formData = new FormData(form);
     const assignmentData = Object.fromEntries(formData.entries());
     console.log("Successfully uploaded:", assignmentData);
 
@@ -129,21 +140,33 @@ const Add = () => {
             <option value="hard">Hard</option>
           </select>
         </div>
-
-        <input
-          type="date"
-          name="deadline"
-          className="input input-accent w-full"
-          required
-        />
-
-        <input
-          type="email"
-          name="userEmail"
-          className="input input-accent w-full"
-          value={user.email}
-          readOnly
-        />
+        <div>
+          <label
+            className="block mb-1 text-sm font-medium text-gray-700"
+            htmlFor="DeadLine"
+          >
+            DeadLine
+          </label>
+          <input
+            type="date"
+            name="deadline"
+            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+            required
+          />
+        </div>
+        <div>
+          <label
+            className="block mb-1 text-sm font-medium text-gray-700"
+            htmlFor="User"
+          >User</label>
+          <input
+            type="email"
+            name="userEmail"
+            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={user.email}
+            readOnly
+          />
+        </div>
 
         <button
           type="submit"

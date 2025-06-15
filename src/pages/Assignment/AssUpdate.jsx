@@ -20,7 +20,18 @@ const AssUpdate = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
 
-    const form = e.target;
+const form = e.target; 
+const description = form.description.value.trim();
+const minLength = description.length >= 30;
+
+if (!minLength) {
+  Swal.fire(
+    "Warning",
+    "Description length must be at least 30 characters",
+    "warning"
+  );
+  return;
+}
     const formData = new FormData(form);
     const updateAssignment = Object.fromEntries(formData.entries());
     console.log(updateAssignment);
@@ -64,7 +75,9 @@ const AssUpdate = () => {
         className="bg-white p-8 rounded-2xl shadow-md w-full space-y-6"
       >
         <h2 className="text-2xl font-bold text-gray-800">Update Assignment</h2>
-        <h2 className="text-2xl font-bold text-gray-800">Athor: <span className="text-amber-700">{user.email}</span> </h2>
+        <h2 className="text-2xl font-bold text-gray-800">
+          Athor: <span className="text-amber-700">{user.email}</span>{" "}
+        </h2>
 
         <div>
           <label
@@ -133,7 +146,6 @@ const AssUpdate = () => {
             className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
-        
 
         <div>
           <label
@@ -156,21 +168,34 @@ const AssUpdate = () => {
           </select>
         </div>
 
-        <input
-          type="date"
-          name="deadline"
-          defaultValue={deadline}
-          className="input input-accent w-full"
-          required
-        />
-
-        <input
-          type="email"
-          name="userEmail"
-          className="input input-accent w-full"
-          defaultValue={userEmail}
-          readOnly
-        />
+       <div>
+          <label
+            className="block mb-1 text-sm font-medium text-gray-700"
+            htmlFor="DeadLine"
+          >
+            DeadLine
+          </label>
+          <input
+            type="date"
+            name="deadline"
+            defaultValue={deadline}
+            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+            required
+          />
+        </div>
+        <div>
+          <label
+            className="block mb-1 text-sm font-medium text-gray-700"
+            htmlFor="User"
+          >User</label>
+          <input
+            type="email"
+            name="userEmail"
+            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={userEmail}
+            readOnly
+          />
+        </div>
 
         <button
           type="submit"

@@ -44,7 +44,7 @@ return (
 
          <Link to={`/submit_assignment/${_id}`}>
           <button className="mt-6 bg-green-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition duration-200">
-            Submit Assignment
+            Take assignment
           </button>
          </Link>
         </div>

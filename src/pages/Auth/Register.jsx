@@ -1,11 +1,12 @@
-import React, {use} from "react";
+import React, { use } from "react";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../assets/LotteJson/lottereg.json";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
-import Social from './Social';
+import Social from "./Social";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    const {createUser} = use(AuthContext);
+  const { createUser } = use(AuthContext);
 
   const handleRegisiter = (e) => {
     e.preventDefault();
@@ -16,15 +17,33 @@ const Register = () => {
     const password = form.password.value;
     // const name = form.name.value;
     // console.log(name, email, password);
+    // Password Validation
+    const uppercase = /[A-Z]/.test(password);
+    const lowercase = /[a-z]/.test(password);
+    const minLength = password.length >= 6;
 
-         createUser(email, password)
-                .then(result =>{
-                    console.log(result.user);
-                    
-                })
-                .catch(error =>{
-                    console.log(error)
-                })
+    if (!uppercase) {
+      Swal.fire("Warning", "Must have an Uppercase letter", "warning");
+      return;
+    }
+
+    if (!lowercase) {
+       Swal.fire("Warning", "Must have an lowercase letter", "warning");
+      return;
+    }
+
+    if (!minLength) {
+       Swal.fire("Warning", "Length must be at least 6 characters", "warning");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div>
@@ -65,6 +84,12 @@ const Register = () => {
                   />
 
                   <button className="btn btn-neutral mt-4">Register</button>
+                  <p className="text-center mt-4">
+                    Already have an account?{" "}
+                    <a href="/login" className="text-blue-600 hover:underline">
+                      Login here
+                    </a>
+                  </p>
                 </fieldset>
               </form>
               <Social></Social>

@@ -23,31 +23,45 @@ const SubmitAssignment = () => {
       const form = e.target;
       const formData = new FormData(form);
       const assignmentSubmitData = Object.fromEntries(formData.entries());
-      console.log("Successfully uploaded:", assignmentSubmitData);
+      // console.log("Successfully uploaded:", assignmentSubmitData);
 
-      fetch("http://localhost:3000/submitedaddassignment", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(assignmentSubmitData),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            console.log("added");
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Your Assignment has been submeted",
-              showConfirmButton: false,
-              timer: 2000,
-            });
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+fetch("http://localhost:3000/submitedaddassignment", {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify(assignmentSubmitData),
+})
+  .then(async (res) => {
+    const data = await res.json();
+
+    if (!res.ok) {
+
+      // Show backend message if submission already exists
+      
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text: data.message || "Something went wrong!",
+      });
+      throw new Error(data.message || "Submission failed");
+    }
+
+    if (data.insertedId) {
+      console.log("added");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your Assignment has been submitted",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
+  })
+  .catch((error) => {
+    console.error("Submit error:", error.message);
+  });
+
     } else {
       Swal.fire({
         icon: "error",

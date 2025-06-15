@@ -1,26 +1,42 @@
-import React from 'react';
-import { Link } from "react-router";
+import React, { use } from "react";
+import { useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
-const PendingTable = ({item}) => {
-    const {_id, userEmail, title, Status, marks, obtainedMarks, feedback} = item;
-    return (
-        <>
-                <tr>
-      <td>{title}</td>
-      <td>{Status}</td>
-      <td>{marks}</td>
+const PendingTable = ({ item }) => {
+  const navigate = useNavigate();
+  const { user } = use(AuthContext);
+  const { _id, userEmail, title, Status, marks, obtainedMarks, feedback } =
+    item;
+  return (
+    <>
+      <tr>
+        <td>{title}</td>
+        <td>{Status}</td>
+        <td>{marks}</td>
 
-      <td>{userEmail}</td>
-      <td>
-          <Link to={`/check_assignment/${_id}`}>
-            <button className="btn btn-success text-white join-item w-full">
-              Give Mark
-            </button>
-          </Link>
-      </td>
-    </tr>
-        </>
-    );
+        <td>{userEmail}</td>
+        <td>
+          <button
+            onClick={() => {
+              if (userEmail !== user.email) {
+                navigate(`/check_assignment/${_id}`);
+              } else {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Not Allowed",
+                  text: "You cannot check your own assignment.",
+                });
+              }
+            }}
+            className="btn btn-success text-white join-item w-full"
+          >
+            Give Mark
+          </button>
+        </td>
+      </tr>
+    </>
+  );
 };
 
 export default PendingTable;

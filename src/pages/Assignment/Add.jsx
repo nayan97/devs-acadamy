@@ -1,14 +1,18 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Add = () => {
   const { user } = use(AuthContext);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
+    const description = form.description.value.trim();
     const minLength = description.length >= 30;
 
     if (!minLength) {
@@ -121,44 +125,54 @@ const Add = () => {
           />
         </div>
 
-        <div>
-          <label
-            className="block mb-1 text-sm font-medium text-gray-700"
-            htmlFor="difficulty"
-          >
-            Difficulty Level
-          </label>
-          <select
-            id="difficulty"
-            name="difficulty"
-            required
-            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            <option value="">Select difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </div>
-        <div>
-          <label
-            className="block mb-1 text-sm font-medium text-gray-700"
-            htmlFor="DeadLine"
-          >
-            DeadLine
-          </label>
-          <input
-            type="date"
-            name="deadline"
-            className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
+        <div className="flex justify-baseline gap-10">
+          <div>
+            <label
+              className="block mb-1 text-sm font-medium text-gray-700"
+              htmlFor="difficulty"
+            >
+              Difficulty Level
+            </label>
+            <select
+              id="difficulty"
+              name="difficulty"
+              required
+              className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <option value="">Select difficulty</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              className="block mb-1 text-sm font-medium text-gray-700"
+              htmlFor="deadline"
+            >
+              Deadline
+            </label>
+
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="yyyy-MM-dd"
+              placeholderText="Select a date"
+              className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+              name="deadline"
+              id="deadline"
+              required
+            />
+          </div>
         </div>
         <div>
           <label
             className="block mb-1 text-sm font-medium text-gray-700"
             htmlFor="User"
-          >User</label>
+          >
+            User
+          </label>
           <input
             type="email"
             name="userEmail"

@@ -4,17 +4,22 @@ import groovyWalkAnimation from "../../assets/LotteJson/lottereg.json";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import Social from "./Social";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, updateUserProfile } = use(AuthContext);
+   const navigate = useNavigate();
 
   const handleRegisiter = (e) => {
     e.preventDefault();
 
     const form = e.target;
 
-    const email = form.email.value;
-    const password = form.password.value;
+    const formData = new FormData(form);
+
+    const { email, password, ...restFormData } = Object.fromEntries(
+      formData.entries()
+    );
     // const name = form.name.value;
     // console.log(name, email, password);
     // Password Validation
@@ -28,18 +33,50 @@ const Register = () => {
     }
 
     if (!lowercase) {
-       Swal.fire("Warning", "Must have an lowercase letter", "warning");
+      Swal.fire("Warning", "Must have an lowercase letter", "warning");
       return;
     }
 
     if (!minLength) {
-       Swal.fire("Warning", "Length must be at least 6 characters", "warning");
+      Swal.fire("Warning", "Length must be at least 6 characters", "warning");
       return;
     }
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        const userProfile = {
+          email,
+          ...restFormData,
+
+          creationTime: result.user?.metadata?.creationTime,
+        };
+
+        // console.log(result.user);
+        //save user in the db
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              // console.log("added");
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+
+              // form.reset();
+
+              navigate("/");
+            }
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -67,6 +104,12 @@ const Register = () => {
                     name="name"
                     className="input"
                     placeholder="Name"
+                  />
+                  <input
+                    type="text"
+                    name="photoURL"
+                    placeholder="Photo URL"
+                    className="input"
                   />
                   <label className="label">Email</label>
                   <input

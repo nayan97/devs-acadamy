@@ -10,7 +10,7 @@ const Layouts = () => {
     <div>
       <Header></Header>
       <div className="bg-base-200">
-        <div className="w-xl md:w-3xl lg:w-7xl mx-auto p-8 pt-0">
+       <div className="w-full md:w-3xl lg:w-7xl mx-auto p-8 pt-0">
            {navigation.state === 'loading' && <Spiner></Spiner>}
           <Outlet></Outlet>
         </div>

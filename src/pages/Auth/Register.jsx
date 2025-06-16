@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = use(AuthContext);
-   const navigate = useNavigate();
+  const { createUser, updateUserProfile, setUser } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegisiter = (e) => {
     e.preventDefault();
@@ -44,11 +44,20 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
+        updateUserProfile(form.name.value, form.photoURL.value).
+        then(() => {
+          setUser((prev) => ({
+            ...prev,
+            displayName: result.user.displayName,
+            photoURL: result.user.photoURL,
+          }));
+        });
         const userProfile = {
           email,
           ...restFormData,
 
           creationTime: result.user?.metadata?.creationTime,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
         };
 
         // console.log(result.user);

@@ -3,8 +3,10 @@ import React, { use } from "react";
 import lottelog from "../../assets/LotteJson/lottelog.json";
 import Social from "./Social";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { loginUser } = use(AuthContext);
 
   console.log(location);
@@ -20,7 +22,24 @@ const Login = () => {
 
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        const loginInfo = {
+          email,
+          lastSignIntime: result.user?.metadata?.lastSignInTime,
+        };
+
+        // update last sign in db
+        fetch("http://localhost:3000/users", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loginInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            navigate("/");
+          });
       })
       .catch((error) => {
         console.log(error);

@@ -6,6 +6,8 @@ import logo from '../../assets/logo.png';
 
 const Header = () => {
   const { user, logoutUser } = use(AuthContext);
+  console.log(user);
+  
   const handleLogout = () => {
     logoutUser()
       .then(() => {

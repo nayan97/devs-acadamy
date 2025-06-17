@@ -3,6 +3,33 @@ import { motion } from "motion/react";
 
 const features = [
   {
+    title: "Full Stack Web Development with MERN",
+    category: "Web Development",
+    lessons: 35,
+    duration: "50 Hours",
+    level: "Intermediate to Advanced",
+    image: "https://i.ibb.co/n8CLHjgx/4505104-8592-8.webp",
+    buttonText: "All Details",
+  },
+  {
+    title: "JavaScript Mastery: From Fundamentals to Frameworks",
+    category: "Web Development",
+    lessons: 28,
+    duration: "40 Hours",
+    level: "Beginner to Advanced",
+    image: "https://i.ibb.co/Q3DQNZky/3371760-6c13-3.webp",
+    buttonText: "All Details",
+  },
+  {
+    title: "Responsive Web Design with Tailwind CSS",
+    category: "Web Development, Design",
+    lessons: 18,
+    duration: "25 Hours",
+    level: "All Levels",
+    image: "https://i.ibb.co/3YPvDGJn/0-r-P2veyqlna-Nffyv-D.png",
+    buttonText: "All Details",
+  },
+  {
     title: "WordPress Theme Development",
     category: "Design, Web Development",
     lessons: 20,
@@ -17,7 +44,7 @@ const features = [
     lessons: 20,
     duration: "30 Hours",
     level: "All Levels",
-    image: "https://i.ibb.co/hFRB0WYF/course-1662724358.jpg", 
+    image: "https://i.ibb.co/hFRB0WYF/course-1662724358.jpg",
     buttonText: "All Details",
   },
   {
@@ -35,10 +62,17 @@ const Featured = () => {
   return (
     <div>
       <section className="py-10 px-5">
-            <div  className="text-center py-12">
-                    <h3  className="text-[#00BCFF] text-4xl font-bold">Our  <span  className="text-[#18181B]">Features</span></h3>
-                </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="text-center py-12">
+          <h3 className="text-[#00BCFF] text-4xl font-bold">
+            Our <motion.span 
+            animate={{
+              color: ['#00ff00', '#ff0080', '#00BCFF'],
+              transition: {duration: 4, repeat:Infinity}
+            }}
+            >Features</motion.span>
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((course, index) => (
             <div key={index} className="bg-white p-4 rounded-xl shadow">
               <img
@@ -47,7 +81,9 @@ const Featured = () => {
                 className="rounded-lg mb-3"
               />
               <p className="text-sm text-gray-500">{course.category}</p>
-              <h3 className="text-xl font-semibold truncate py-4">{course.title}</h3>
+              <h3 className="text-xl font-semibold truncate py-4">
+                {course.title}
+              </h3>
               <div className="flex justify-between text-md text-gray-600 mt-2 pb-2 font-semibold">
                 <span>📄 {course.lessons} Lessons</span>
                 <span>⏱ {course.duration}</span>

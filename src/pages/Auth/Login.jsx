@@ -4,6 +4,7 @@ import lottelog from "../../assets/LotteJson/lottelog.json";
 import Social from "./Social";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Login = () => {
         };
 
         // update last sign in db
-        fetch("http://localhost:3000/users", {
+        fetch("https://b11-a11-server-rho.vercel.app/users", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -38,11 +39,24 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            if (data.success) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Login Successful!",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+            }
             navigate("/");
           });
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong",
+          text: error.message,
+        });
       });
   };
 

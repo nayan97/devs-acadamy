@@ -62,7 +62,7 @@ const Register = () => {
 
         // console.log(result.user);
         //save user in the db
-        fetch("http://localhost:3000/users", {
+        fetch("https://b11-a11-server-rho.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

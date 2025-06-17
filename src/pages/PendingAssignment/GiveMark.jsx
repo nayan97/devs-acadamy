@@ -7,7 +7,7 @@ const GiveMark = () => {
   const [submission, setSubmission] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/myassignment/${id}`)
+    fetch(`https://b11-a11-server-rho.vercel.app/myassignment/${id}`)
       .then((res) => res.json())
       .then((data) => setSubmission(data));
   }, [id]);
@@ -18,7 +18,7 @@ const GiveMark = () => {
     const marksGiven = form.marksGiven.value;
     const feedback = form.feedback.value;
 
-    fetch(`http://localhost:3000/myassignment/${id}`, {
+    fetch(`https://b11-a11-server-rho.vercel.app/myassignment/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

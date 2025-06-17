@@ -46,7 +46,7 @@ const Router = createBrowserRouter([
       },
            {
         path: "/pendingassignment",
-        loader: () => fetch(`http://localhost:3000/myassignment`),
+        loader: () => fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
         element: (
           <PrivateRoute>
             <PendingAssignment></PendingAssignment>
@@ -55,7 +55,7 @@ const Router = createBrowserRouter([
       },
         {
         path: "/check_assignment/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/myassignment/${params.id}`),
+        loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/myassignment/${params.id}`),
         element: (
           <PrivateRoute>
             <GiveMark></GiveMark>
@@ -64,7 +64,7 @@ const Router = createBrowserRouter([
       },
             {
         path: "/myassignment",
-                 loader: () => fetch(`http://localhost:3000/myassignment`),
+                 loader: () => fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
         element: (
           <PrivateRoute>
             <MyAssignment></MyAssignment>
@@ -73,7 +73,7 @@ const Router = createBrowserRouter([
       },
         {
         path: "/ass_update/:id",
-         loader: ({params}) => fetch(`http://localhost:3000/assignment/${params.id}`),
+         loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/assignment/${params.id}`),
         element: (
           <PrivateRoute>
             <AssUpdate></AssUpdate>
@@ -82,7 +82,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/ass_details/:id",
-         loader: ({params}) => fetch(`http://localhost:3000/assignment/${params.id}`),
+         loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/assignment/${params.id}`),
         element: (
           <PrivateRoute>
             <AssDetail></AssDetail>
@@ -91,7 +91,7 @@ const Router = createBrowserRouter([
       },
          {
         path: "/submit_assignment/:id",
-         loader: ({params}) => fetch(`http://localhost:3000/assignment/${params.id}`),
+         loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/assignment/${params.id}`),
         element: (
           <PrivateRoute>
             <SubmitAssignment></SubmitAssignment>
@@ -103,7 +103,7 @@ const Router = createBrowserRouter([
 
       {
         path: "/assignments",
-        loader: () => fetch("http://localhost:3000/assignment"),
+        loader: () => fetch("https://b11-a11-server-rho.vercel.app/assignment"),
         Component: ViewAssignment,
       },
     ],

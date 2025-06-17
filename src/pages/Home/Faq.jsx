@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "motion/react";
 
 const Faq = () => {
     return (
@@ -6,7 +7,12 @@ const Faq = () => {
                  <div id="faq"  className="w-full mx-auto px-6 rounded-xl my-2 overflow-hidden py-12 mb-24">
 
                 <div  className="text-center py-12">
-                    <h3  className="text-[#00BCFF] text-4xl font-bold">Frequently <span  className="text-[#18181B]">Asked Questions</span></h3>
+                    <h3  className="text-[#00BCFF] text-4xl font-bold">Frequently <motion.span 
+            animate={{
+              color: ['#00ff00','#00BCFF', '#ff0080'],
+              transition: {duration: 4, repeat:Infinity}
+            }}
+            >Asked Questions</motion.span></h3>
                 </div>
                 
             <div className="collapse collapse-arrow bg-base-100 border border-base-300">

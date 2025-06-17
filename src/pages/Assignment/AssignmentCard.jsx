@@ -34,7 +34,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
 
       if (user.email == userEmail) {
         if (result.isConfirmed) {
-          fetch(`http://localhost:3000/assignment/${_id}`, {
+          fetch(`https://b11-a11-server-rho.vercel.app/assignment/${_id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

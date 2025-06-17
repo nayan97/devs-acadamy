@@ -42,7 +42,7 @@ const AssUpdate = () => {
 
     // send updated data into db
     if (user.email === userEmail) {
-      fetch(`http://localhost:3000/assignment/${_id}`, {
+      fetch(`https://b11-a11-server-rho.vercel.app/assignment/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -80,7 +80,7 @@ const AssUpdate = () => {
       >
         <h2 className="text-2xl font-bold text-gray-800">Update Assignment</h2>
         <h2 className="text-2xl font-bold text-gray-800">
-          Athor: <span className="text-amber-700">{user.email}</span>{" "}
+          Athor: <span className="text-amber-700">{userEmail}</span>{" "}
         </h2>
 
         <div>
@@ -226,7 +226,7 @@ const AssUpdate = () => {
             type="email"
             name="userEmail"
             className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={userEmail}
+            value={user.email}
             readOnly
           />
         </div>

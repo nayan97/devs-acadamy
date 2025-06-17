@@ -28,7 +28,7 @@ const Add = () => {
     const assignmentData = Object.fromEntries(formData.entries());
     console.log("Successfully uploaded:", assignmentData);
 
-    fetch("http://localhost:3000/addassignment", {
+    fetch("https://b11-a11-server-rho.vercel.app/addassignment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

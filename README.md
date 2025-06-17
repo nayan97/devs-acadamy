@@ -1,12 +1,24 @@
-# React + Vite
+##### Website Name: career-corner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🎯 **Live URL**   https://career-corner-bd.web.app/
 
-Currently, two official plugins are available:
+## 🌟 Key Features of career-corner
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📝 **Post & Manage Assignments**  
+Students can easily post assignments with details like title, category, deadline, and budget. Instructors can view and manage submissions in a streamlined interface.
 
-## Expanding the ESLint configuration
+✅ **Smart Validation & Submission Checks**  
+Ensures quality control with built-in validation for required fields, minimum description length, file types, and more — preventing incomplete or low-quality submissions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧮 **Marking System with Feedback Tools**  
+Examiners can review submissions, assign marks, and leave comments. Marking status is updated instantly, making the evaluation process transparent and organized.
+
+- 🔐 **Protected Routes & Smart Redirection**  
+  When users click the login button from the navbar or try to access protected routes, they are automatically redirected to the login page.
+
+
+- ⚙️ **Full CRUD Functionality via Express.js**  
+  Implemented Create, Read, Update, and Delete operations on the backend using Express.js for dynamic data management.
+
+- 🌗 **Dark/Light Theme Toggle**  
+  Seamless dark and light theme toggle available on the home page for an improved and accessible user experience.

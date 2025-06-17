@@ -24,10 +24,10 @@ const Banner = () => {
           </div>
           <div className="flex-1">
             <h1 className="text-5xl font-bold">
-              Elevate Your Skills at Devs Academy
+              Elevate Your Skills at career-corner
             </h1>
             <p className="py-6">
-              Discover top-tier courses in WordPress Plugin Development
+              Discover top-tier courses in Web Development
             </p>
             <button className="btn bg-green-600 text-white ">Get Started</button>
           </div>

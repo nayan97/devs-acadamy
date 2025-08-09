@@ -72,8 +72,8 @@ const Featured = () => {
             >Features</motion.span>
           </h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((course, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.slice(0, 4).map((course, index) => (
             <div key={index} className="bg-white p-4 rounded-xl shadow">
               <img
                 src={course.image}
@@ -84,10 +84,7 @@ const Featured = () => {
               <h3 className="text-xl font-semibold truncate py-4">
                 {course.title}
               </h3>
-              <div className="flex justify-between text-md text-gray-600 mt-2 pb-2 font-semibold">
-                <span>📄 {course.lessons} Lessons</span>
-                <span>⏱ {course.duration}</span>
-              </div>
+       
               <p className="text-sm mt-1 font-semibold ">📈 {course.level}</p>
               <button className="font-semibold mt-3 w-full bg-gray-100 py-2 rounded-md hover:bg-gray-200 transition">
                 {course.buttonText} →

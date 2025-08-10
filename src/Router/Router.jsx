@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router";
 import Layouts from "../Layouts/Layouts";
+import DashboardLayout from "../Layouts/DashboardLayout";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
@@ -15,6 +16,7 @@ import PendingAssignment from "../pages/PendingAssignment/PendingAssignment";
 import GiveMark from "../pages/PendingAssignment/GiveMark";
 import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
+import Body from "../pages/Admin/Body";
 
 const Router = createBrowserRouter([
   {
@@ -106,6 +108,34 @@ const Router = createBrowserRouter([
         loader: () => fetch("https://b11-a11-server-rho.vercel.app/assignment"),
         Component: ViewAssignment,
       },
+    ],
+  },
+    {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>,
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        Component: Body,
+      },
+      // {
+      //   path: "join_as_guide",
+      //   element: (
+        
+      //       <JoinAsGuide></JoinAsGuide>
+          
+      //   ),
+      // },
+      // {
+      //   path: "add-story",
+      //   Component: AddStory,
+      // },
+
+
     ],
   },
 ]);

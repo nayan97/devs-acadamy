@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Full Stack Web Development with MERN",
+    "category": "Web Development",
+    "lessons": 35,
+    "duration": "50 Hours",
+    "level": "Intermediate to Advanced",
+    "image": "https://i.ibb.co/n8CLHjgx/4505104-8592-8.webp",
+    "buttonText": "All Details"
+  },
+  {
+    "title": "JavaScript Mastery: From Fundamentals to Frameworks",
+    "category": "Web Development",
+    "lessons": 28,
+    "duration": "40 Hours",
+    "level": "Beginner to Advanced",
+    "image": "https://i.ibb.co/Q3DQNZky/3371760-6c13-3.webp",
+    "buttonText": "All Details"
+  },
+  {
+    "title": "Responsive Web Design with Tailwind CSS",
+    "category": "Web Development, Design",
+    "lessons": 18,
+    "duration": "25 Hours",
+    "level": "All Levels",
+    "image": "https://i.ibb.co/3YPvDGJn/0-r-P2veyqlna-Nffyv-D.png",
+    "buttonText": "All Details"
+  },
+  {
+    "title": "WordPress Theme Development",
+    "category": "Design, Web Development",
+    "lessons": 20,
+    "duration": "30 Hours",
+    "level": "All Levels",
+    "image": "https://i.ibb.co/DP6y68Xp/fotwoobvkektaekkzj3q.jpg",
+    "buttonText": "All Details"
+  },
+  {
+    "title": "Meta Marketing (Basic to Advance)",
+    "category": "Design, Web Development",
+    "lessons": 20,
+    "duration": "30 Hours",
+    "level": "All Levels",
+    "image": "https://i.ibb.co/hFRB0WYF/course-1662724358.jpg",
+    "buttonText": "All Details"
+  },
+  {
+    "title": "eCommerce & Product (Software) SEO",
+    "category": "Design, Web Development",
+    "lessons": 20,
+    "duration": "30 Hours",
+    "level": "All Levels",
+    "image": "https://i.ibb.co/ZpNHK0tb/seo-courses.jpg",
+    "buttonText": "All Details"
+  }
+]

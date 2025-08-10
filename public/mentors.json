@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Ayesha Khan",
+    "role": "MERN Stack Developer",
+    "expertise": ["MongoDB", "Express.js", "React.js", "Node.js"],
+    "experience": "5+ Years",
+    "studentsTrained": 1200,
+    "image": "https://i.ibb.co/7j3mT6f/mern-mentor.jpg",
+    "buttonText": "View Profile"
+  },
+  {
+    "name": "Ravi Sharma",
+    "role": "UI/UX Designer",
+    "expertise": ["Figma", "Adobe XD", "User Research", "Wireframing"],
+    "experience": "7+ Years",
+    "studentsTrained": 1500,
+    "image": "https://i.ibb.co/BZ0g3D1/uiux-mentor.jpg",
+    "buttonText": "View Profile"
+  },
+  {
+    "name": "Nusrat Jahan",
+    "role": "Laravel Developer",
+    "expertise": ["Laravel", "PHP", "MySQL", "REST API"],
+    "experience": "6+ Years",
+    "studentsTrained": 1000,
+    "image": "https://i.ibb.co/hHhF7XJ/laravel-mentor.jpg",
+    "buttonText": "View Profile"
+  },
+  {
+    "name": "Aditya Verma",
+    "role": "MERN Stack Developer",
+    "expertise": ["Next.js", "GraphQL", "TypeScript"],
+    "experience": "4+ Years",
+    "studentsTrained": 900,
+    "image": "https://i.ibb.co/n8CLHjgx/4505104-8592-8.webp",
+    "buttonText": "View Profile"
+  },
+  {
+    "name": "Priya Patel",
+    "role": "UI/UX Designer",
+    "expertise": ["Sketch", "Prototyping", "Accessibility Design"],
+    "experience": "5+ Years",
+    "studentsTrained": 800,
+    "image": "https://i.ibb.co/DKz8TZf/uiux-mentor2.jpg",
+    "buttonText": "View Profile"
+  },
+  {
+    "name": "Farhan Ahmed",
+    "role": "Laravel Developer",
+    "expertise": ["Laravel", "Livewire", "Vue.js"],
+    "experience": "5+ Years",
+    "studentsTrained": 1100,
+    "image": "https://i.ibb.co/HPKzCjq/laravel-mentor2.jpg",
+    "buttonText": "View Profile"
+  }
+]

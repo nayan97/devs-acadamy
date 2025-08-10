@@ -18,12 +18,12 @@ const Footer = () => {
       </li>
       <li>
         <NavLink
-          to="Aboutus"
+          to="/blogs"
           className={({ isActive }) =>
             isActive ? "text-[#0EA106] font-bold my-2" : "my-2"
           }
         >
-          About Us
+          Blogs
         </NavLink>
       </li>
       <li>
@@ -52,6 +52,31 @@ const Footer = () => {
       )}
     </>
   );
+  const about = (
+    <>
+      <li>
+        <NavLink
+          to="/about-us"
+          className={({ isActive }) =>
+            isActive ? "text-[#0EA106] font-bold my-2" : "my-2"
+          }
+        >
+         About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact-us"
+          className={({ isActive }) =>
+            isActive ? "text-[#0EA106] font-bold my-2" : "my-2"
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
+
+    </>
+  );
 
   return (
     <div className="bg-neutral">
@@ -62,10 +87,8 @@ const Footer = () => {
             <ul className="font-medium">{links}</ul>
           </nav>
           <nav>
-            <h6 className="footer-title">Legal</h6>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
+            <h6 className="footer-title">About</h6>
+         <ul className="font-medium">{about}</ul>
           </nav>
           <nav>
             <h6 className="footer-title">Social</h6>

@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen }) => {
 
   return (
     <aside
-      className={`bg-[#ddd] h-full p-4 transition-all duration-300 ${
+      className={`bg-base-200 h-full p-4 transition-all duration-300 ${
         isOpen ? "w-40 lg:w-64" : "w-16"
       } overflow-hidden`}
     >
@@ -26,7 +26,7 @@ const Sidebar = ({ isOpen }) => {
         <div className="p-1 mt-[-15px] ml-[-15px]">
           <NavLink to="/" className="flex justify-start p-2 ml-[-8]">
             <span className="flex items-start gap-2">
-              <span className="pt-4 pl-2">Home</span>
+              <span className="pt-4 pl-2 btn text-center">Home</span>
             </span>
           </NavLink>
         </div>

@@ -1,99 +1,56 @@
-import React from "react";
-import { motion } from "motion/react";
-
-const features = [
-  {
-    title: "Full Stack Web Development with MERN",
-    category: "Web Development",
-    lessons: 35,
-    duration: "50 Hours",
-    level: "Intermediate to Advanced",
-    image: "https://i.ibb.co/n8CLHjgx/4505104-8592-8.webp",
-    buttonText: "All Details",
-  },
-  {
-    title: "JavaScript Mastery: From Fundamentals to Frameworks",
-    category: "Web Development",
-    lessons: 28,
-    duration: "40 Hours",
-    level: "Beginner to Advanced",
-    image: "https://i.ibb.co/Q3DQNZky/3371760-6c13-3.webp",
-    buttonText: "All Details",
-  },
-  {
-    title: "Responsive Web Design with Tailwind CSS",
-    category: "Web Development, Design",
-    lessons: 18,
-    duration: "25 Hours",
-    level: "All Levels",
-    image: "https://i.ibb.co/3YPvDGJn/0-r-P2veyqlna-Nffyv-D.png",
-    buttonText: "All Details",
-  },
-  {
-    title: "WordPress Theme Development",
-    category: "Design, Web Development",
-    lessons: 20,
-    duration: "30 Hours",
-    level: "All Levels",
-    image: "https://i.ibb.co/DP6y68Xp/fotwoobvkektaekkzj3q.jpg",
-    buttonText: "All Details",
-  },
-  {
-    title: "Meta Marketing (Basic to Advance)",
-    category: "Design, Web Development",
-    lessons: 20,
-    duration: "30 Hours",
-    level: "All Levels",
-    image: "https://i.ibb.co/hFRB0WYF/course-1662724358.jpg",
-    buttonText: "All Details",
-  },
-  {
-    title: "eCommerce & Product (Software) SEO",
-    category: "Design, Web Development",
-    lessons: 20,
-    duration: "30 Hours",
-    level: "All Levels",
-    image: "https://i.ibb.co/ZpNHK0tb/seo-courses.jpg",
-    buttonText: "All Details",
-  },
-];
+import React, { useEffect, useState } from "react";
 
 const Featured = () => {
+  const [features, setFeatures] = useState([]);
+
+  useEffect(() => {
+    fetch("/features.json")
+      .then((res) => res.json())
+      .then((data) => setFeatures(data))
+      .catch((err) => console.error("Failed to fetch features:", err));
+  }, []);
+
+  const handleButtonClick = (course) => {
+    alert(`You clicked on ${course.title}`);
+    // Replace alert with navigation if needed
+    // e.g., navigate(`/courses/${course.id}`)
+  };
+
   return (
-    <div>
-      <section className="py-10 px-5">
-        <div className="text-center py-12">
-          <h3 className="text-[#00BCFF] text-4xl font-bold">
-            Our <motion.span 
-            animate={{
-              color: ['#00ff00', '#ff0080', '#00BCFF'],
-              transition: {duration: 4, repeat:Infinity}
-            }}
-            >Features</motion.span>
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.slice(0, 4).map((course, index) => (
-            <div key={index} className="bg-white p-4 rounded-xl shadow">
-              <img
-                src={course.image}
-                alt={course.title}
-                className="rounded-lg mb-3"
-              />
-              <p className="text-sm text-gray-500">{course.category}</p>
-              <h3 className="text-xl font-semibold truncate py-4">
-                {course.title}
-              </h3>
-       
-              <p className="text-sm mt-1 font-semibold ">📈 {course.level}</p>
-              <button className="font-semibold mt-3 w-full bg-gray-100 py-2 rounded-md hover:bg-gray-200 transition">
-                {course.buttonText} →
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+    <section className="py-10 px-5">
+      <div className="text-center py-12">
+        <h3 className="text-[#00BCFF] text-4xl font-bold">
+          Our <span>Features</span>
+        </h3>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.slice(0, 4).map((course, index) => (
+          <div
+            key={index}
+            className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition-shadow duration-300 flex flex-col"
+          >
+            <img
+              src={course.image}
+              alt={course.title}
+              className="rounded-lg mb-3 object-cover h-48 w-full"
+            />
+            <p className="text-sm text-gray-500">{course.category}</p>
+            <h3 className="text-xl font-semibold truncate py-4">
+              {course.title}
+            </h3>
+
+
+            <button
+              onClick={() => handleButtonClick(course)}
+              className="font-semibold mt-auto w-full bg-gray-100 py-2 rounded-md hover:bg-gray-200 transition"
+            >
+              {course.buttonText} →
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

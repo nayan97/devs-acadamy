@@ -13,10 +13,7 @@ import {
   PackageSearch,
 } from "lucide-react";
 
-
 const Sidebar = ({ isOpen }) => {
- 
-
   const linkClasses = "flex items-center gap-3 p-2 rounded hover:bg-base-300";
 
   return (
@@ -28,12 +25,9 @@ const Sidebar = ({ isOpen }) => {
       <div className="space-y-2">
         <div className="p-1 mt-[-15px] ml-[-15px]">
           <NavLink to="/" className="flex justify-start p-2 ml-[-8]">
-           
-              <span className="flex items-start gap-2">
-               
-                <span className="pt-4 pl-2">Home</span>
-              </span>
-           
+            <span className="flex items-start gap-2">
+              <span className="pt-4 pl-2">Home</span>
+            </span>
           </NavLink>
         </div>
 
@@ -51,31 +45,15 @@ const Sidebar = ({ isOpen }) => {
           <Boxes className="w-5 h-5" />
           {isOpen && <span>All Assignment</span>}
         </NavLink>
+        <NavLink to="/dashboard/pending-assignment" className={linkClasses}>
+          <PackagePlus className="w-5 h-5" />
+          {isOpen && <span>Pending-Assignment</span>}
+        </NavLink>
 
-          <>
-            <NavLink to="/dashboard/myassignment" className={linkClasses}>
-              <UserCog className="w-5 h-5" />
-              {isOpen && <span>My Assignment</span>}
-            </NavLink>
-
-            <NavLink to="/dashboard/add-tour" className={linkClasses}>
-              <PackagePlus className="w-5 h-5" />
-              {isOpen && <span>Add Tour Plan</span>}
-            </NavLink>
-               <NavLink to="/dashboard/manage-tour" className={linkClasses}>
-              
-              <PackageSearch className="w-5 h-5" />
-              {isOpen && <span>Manage Tour Plan</span>}
-            </NavLink>
-
-            <NavLink to="/dashboard/pending_guides" className={linkClasses}>
-              <ShieldCheck className="w-5 h-5" />
-              {isOpen && <span>Manage Candidates</span>}
-            </NavLink>
-          </>
-       
-
- 
+        <NavLink to="/dashboard/myassignment" className={linkClasses}>
+          <UserCog className="w-5 h-5" />
+          {isOpen && <span>My Assignment</span>}
+        </NavLink>
       </div>
     </aside>
   );

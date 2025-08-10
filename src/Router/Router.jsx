@@ -47,16 +47,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/pendingassignment",
-        loader: () =>
-          fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
-        element: (
-          <PrivateRoute>
-            <PendingAssignment></PendingAssignment>
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/check_assignment/:id",
         loader: ({ params }) =>
@@ -143,6 +134,16 @@ const Router = createBrowserRouter([
         path: "all-assignment",
         loader: () => fetch("https://b11-a11-server-rho.vercel.app/assignment"),
         Component: AllAssignment,
+      },
+      {
+        path: "pending-assignment",
+        loader: () =>
+          fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
+        element: (
+       
+            <PendingAssignment></PendingAssignment>
+      
+        ),
       },
       {
         path: "myassignment",

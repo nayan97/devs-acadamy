@@ -19,7 +19,7 @@ const ViewAssignment = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="flex justify-around p-4">
+      <div className="flex justify-around py-4">
         <label className="input">
           <svg
             className="h-[1em] opacity-50"
@@ -57,7 +57,7 @@ const ViewAssignment = () => {
           <option value="hard">Hard</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 p-6 border border-amber-100 rounded-2xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {filteredAssignments.map((assignment) => (
           <AssignmentCard
             key={assignment._id}

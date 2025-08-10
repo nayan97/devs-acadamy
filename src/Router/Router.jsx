@@ -20,6 +20,7 @@ import Body from "../pages/Admin/Body";
 import AllAssignment from "../pages/Admin/Assignment/AllAssignment";
 import AboutUs from "../pages/page/AboutUs";
 import Blog from "../pages/page/blog";
+import ContactUs from "../pages/page/ContactUs";
 
 const Router = createBrowserRouter([
   {
@@ -49,6 +50,11 @@ const Router = createBrowserRouter([
       {
         path: "/about-us",
         Component: AboutUs,
+      },
+
+            {
+        path: "/contact-us",
+        Component: ContactUs,
       },
       {
         path: "/addassignment",

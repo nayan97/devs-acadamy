@@ -12,12 +12,12 @@ const data = useLoaderData();
       { data.map((story) => (
         <div
           key={story._id}
-          className="bg-white rounded-2xl shadow-md p-5 border border-gray-200"
+          className="bg-base-100 rounded-2xl shadow-md p-5 border border-base-200"
         >
           <div className="flex items-center mb-3">
             <div className="bg-red-300 h-10 w-10 rounded-full mr-3" />
             <div>
-              <h2 className="text-lg font-semibold">
+              <h2 className="text-gray-500 text-lg font-semibold">
                 {story.username || story.email}
               </h2>
               <p className="text-sm text-gray-500">
@@ -26,7 +26,7 @@ const data = useLoaderData();
             </div>
           </div>
           <div className="mb-4">
-            <h2 className="text-xl font-semibold pb-4">{story.title}</h2>
+            <h2 className="text-gray-500 text-xl font-semibold pb-4">{story.title}</h2>
             {story.imageUrls && (
               <img
                 src={story.imageUrls[0]}

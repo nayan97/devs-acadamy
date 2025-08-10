@@ -5,8 +5,8 @@ import CountUp from 'react-countup';
 const Counter = () => {
     return (
         <div className='mt-18'>
-            <h1 className='text-center font-bold text-3xl p-6'>We Provide World Best Apps Store</h1>
-            <p className='text-center text-lg'>Our platform connects you with verified, experienced tatents across various specialities — all at your convenience. </p>
+            <h1 className='text-center font-bold text-3xl p-6'>We Provide World Best Future-Ready Learning</h1>
+            <p className='text-center text-lg'>Upgrade your skills, unlock your potential </p>
             <div className='grid grid-cols-2 lg:grid-cols-4 py-8 gap-12'>
         
                 <div className="bg-[#f3f3f3] p-10 rounded-2xl">

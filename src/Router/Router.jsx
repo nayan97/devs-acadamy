@@ -17,6 +17,7 @@ import GiveMark from "../pages/PendingAssignment/GiveMark";
 import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
 import Body from "../pages/Admin/Body";
+import AllAssignment from "../pages/Admin/Assignment/AllAssignment";
 
 const Router = createBrowserRouter([
   {
@@ -78,18 +79,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/ass_update/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://b11-a11-server-rho.vercel.app/assignment/${params.id}`
-          ),
-        element: (
-          <PrivateRoute>
-            <AssUpdate></AssUpdate>
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/ass_details/:id",
         loader: ({ params }) =>
@@ -134,23 +124,31 @@ const Router = createBrowserRouter([
         index: true,
         Component: Body,
       },
+
       {
         path: "addassignment",
+        element: <Add></Add>,
+      },
+      {
+        path: "ass_update/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://b11-a11-server-rho.vercel.app/assignment/${params.id}`
+          ),
         element: (
-       
-            <Add></Add>
-         
+            <AssUpdate></AssUpdate>
         ),
       },
-         {
+      {
+        path: "all-assignment",
+        loader: () => fetch("https://b11-a11-server-rho.vercel.app/assignment"),
+        Component: AllAssignment,
+      },
+      {
         path: "myassignment",
         loader: () =>
           fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
-        element: (
-     
-            <MyAssignment></MyAssignment>
-         
-        ),
+        element: <MyAssignment></MyAssignment>,
       },
     ],
   },

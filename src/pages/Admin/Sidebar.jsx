@@ -47,9 +47,9 @@ const Sidebar = ({ isOpen }) => {
           {isOpen && <span>Add Assignment</span>}
         </NavLink>
 
-        <NavLink to="/dashboard/manage-stories" className={linkClasses}>
+        <NavLink to="/dashboard/all-assignment" className={linkClasses}>
           <Boxes className="w-5 h-5" />
-          {isOpen && <span>Manage Story</span>}
+          {isOpen && <span>All Assignment</span>}
         </NavLink>
 
           <>

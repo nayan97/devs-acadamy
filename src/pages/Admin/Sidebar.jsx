@@ -42,9 +42,9 @@ const Sidebar = ({ isOpen }) => {
           {isOpen && <span>Dashboard</span>}
         </NavLink>
 
-        <NavLink to="/dashboard/add-story" className={linkClasses}>
+        <NavLink to="/dashboard/addassignment" className={linkClasses}>
           <FileText className="w-5 h-5" />
-          {isOpen && <span>Add Story</span>}
+          {isOpen && <span>Add Assignment</span>}
         </NavLink>
 
         <NavLink to="/dashboard/manage-stories" className={linkClasses}>
@@ -53,9 +53,9 @@ const Sidebar = ({ isOpen }) => {
         </NavLink>
 
           <>
-            <NavLink to="/dashboard/make-admin" className={linkClasses}>
+            <NavLink to="/dashboard/myassignment" className={linkClasses}>
               <UserCog className="w-5 h-5" />
-              {isOpen && <span>Manage Users</span>}
+              {isOpen && <span>My Assignment</span>}
             </NavLink>
 
             <NavLink to="/dashboard/add-tour" className={linkClasses}>

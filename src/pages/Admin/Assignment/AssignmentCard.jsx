@@ -2,7 +2,7 @@ import React from "react";
 import { use } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import { AuthContext } from "../../../Context/AuthContext/AuthContext";
 
 const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
   const { user } = use(AuthContext);

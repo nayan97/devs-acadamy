@@ -5,13 +5,13 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
-import Add from "../pages/Assignment/Add";
+import Add from "../pages/Admin/Assignment/Add";
 import PrivateRoute from "./PrivateRoute";
-import ViewAssignment from "../pages/Assignment/ViewAssignment";
-import AssUpdate from "../pages/Assignment/AssUpdate";
-import AssDetail from "../pages/Assignment/AssDetail";
-import SubmitAssignment from "../pages/Assignment/SubmitAssignment";
-import MyAssignment from "../pages/MyAssignment/MyAssignment";
+import ViewAssignment from "../pages/Admin/Assignment/ViewAssignment";
+import AssUpdate from "../pages/Admin/Assignment/AssUpdate";
+import AssDetail from "../pages/Admin/Assignment/AssDetail";
+import SubmitAssignment from "../pages/Admin/Assignment/SubmitAssignment";
+import MyAssignment from "../pages/Admin/MyAssignment/MyAssignment";
 import PendingAssignment from "../pages/PendingAssignment/PendingAssignment";
 import GiveMark from "../pages/PendingAssignment/GiveMark";
 import Spiner from "../components/Spiner";
@@ -46,36 +46,44 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-           {
+      {
         path: "/pendingassignment",
-        loader: () => fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
+        loader: () =>
+          fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
         element: (
           <PrivateRoute>
             <PendingAssignment></PendingAssignment>
           </PrivateRoute>
         ),
       },
-        {
+      {
         path: "/check_assignment/:id",
-        loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/myassignment/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://b11-a11-server-rho.vercel.app/myassignment/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <GiveMark></GiveMark>
           </PrivateRoute>
         ),
       },
-            {
+      {
         path: "/myassignment",
-                 loader: () => fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
+        loader: () =>
+          fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
         element: (
           <PrivateRoute>
             <MyAssignment></MyAssignment>
           </PrivateRoute>
         ),
       },
-        {
+      {
         path: "/ass_update/:id",
-         loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/assignment/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://b11-a11-server-rho.vercel.app/assignment/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <AssUpdate></AssUpdate>
@@ -84,24 +92,28 @@ const Router = createBrowserRouter([
       },
       {
         path: "/ass_details/:id",
-         loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/assignment/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://b11-a11-server-rho.vercel.app/assignment/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <AssDetail></AssDetail>
           </PrivateRoute>
         ),
       },
-         {
+      {
         path: "/submit_assignment/:id",
-         loader: ({params}) => fetch(`https://b11-a11-server-rho.vercel.app/assignment/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://b11-a11-server-rho.vercel.app/assignment/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <SubmitAssignment></SubmitAssignment>
           </PrivateRoute>
         ),
       },
-
-
 
       {
         path: "/assignments",
@@ -110,7 +122,7 @@ const Router = createBrowserRouter([
       },
     ],
   },
-    {
+  {
     path: "/dashboard",
     element: (
       <PrivateRoute>
@@ -122,20 +134,24 @@ const Router = createBrowserRouter([
         index: true,
         Component: Body,
       },
-      // {
-      //   path: "join_as_guide",
-      //   element: (
-        
-      //       <JoinAsGuide></JoinAsGuide>
-          
-      //   ),
-      // },
-      // {
-      //   path: "add-story",
-      //   Component: AddStory,
-      // },
-
-
+      {
+        path: "addassignment",
+        element: (
+       
+            <Add></Add>
+         
+        ),
+      },
+         {
+        path: "myassignment",
+        loader: () =>
+          fetch(`https://b11-a11-server-rho.vercel.app/myassignment`),
+        element: (
+     
+            <MyAssignment></MyAssignment>
+         
+        ),
+      },
     ],
   },
 ]);

@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { useLoaderData } from 'react-router';
-import { AuthContext } from '../../Context/AuthContext/AuthContext';
+import { AuthContext } from '../../../Context/AuthContext/AuthContext';
 import MyAssTable from './MyAssTable';
 
 

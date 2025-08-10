@@ -11,7 +11,7 @@ const DashboardLayout = () => {
   return (
     <>
       <div className="">
-        <div className="flex h-screen max-w-7xl mx-auto bg-amber-50 border border-blue-950">
+        <div className="flex h-screen mx-auto bg-amber-50 border border-blue-950">
           <Sidebar isOpen={sidebarOpen} />
           <div className="flex-1 flex flex-col">
             <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
@@ -21,7 +21,7 @@ const DashboardLayout = () => {
           </div>
         </div>
 
-        <div className="max-w-4xl lg:max-w-7xl mx-auto mb-[-25px]">
+        <div className="max-w-4xl mx-auto mb-[-25px]">
           <Footer></Footer>
         </div>
       </div>

@@ -2,12 +2,12 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import ThemeToggle from "../../components/ThemeToggle";
-import logo from '../../assets/logo.png';
+import logo from "../../assets/logo.png";
 
 const Header = () => {
   const { user, logoutUser } = use(AuthContext);
   console.log(user);
-  
+
   const handleLogout = () => {
     logoutUser()
       .then(() => {
@@ -97,7 +97,9 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <Link to="/"><img className="w-22" src={logo} alt="" /></Link>
+          <Link to="/">
+            <img className="w-22" src={logo} alt="" />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -139,23 +141,9 @@ const Header = () => {
                     <a className="justify-between">{user.email}</a>
                   </li>
                   <li>
-                    <NavLink
-                      to="/addassignment"
-                      className={({ isActive }) =>
-                        isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
-                      }
+                    <NavLink to="/dashboard"
                     >
-                      Add Assignment
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/myassignment"
-                      className={({ isActive }) =>
-                        isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
-                      }
-                    >
-                      My Assignment
+                      Dashboard
                     </NavLink>
                   </li>
                 </ul>

@@ -41,23 +41,33 @@ const Header = () => {
           Assignment
         </NavLink>
       </li>
+           <li>
+        <NavLink
+          to="/blogs"
+          className={({ isActive }) =>
+            isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
+          }
+        >
+          Blogs
+        </NavLink>
+      </li>
       {user && (
         <>
           <li>
             <NavLink
-              to="/pendingassignment"
+              to="/dashboard"
               className={({ isActive }) =>
                 isActive ? "text-[#0EA106] font-bold m-2" : "m-2"
               }
             >
-              Pending Assignment
+              Dashboard
             </NavLink>
           </li>
         </>
       )}
       <li>
         <NavLink
-          to="Aboutus"
+          to="about-us"
           className={({ isActive }) =>
             isActive ? "text-[#0EA106] font-bold my-2" : "my-2"
           }
@@ -141,10 +151,7 @@ const Header = () => {
                     <a className="justify-between">{user.email}</a>
                   </li>
                   <li>
-                    <NavLink to="/dashboard"
-                    >
-                      Dashboard
-                    </NavLink>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
                   </li>
                 </ul>
               </div>

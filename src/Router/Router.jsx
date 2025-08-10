@@ -18,6 +18,8 @@ import Spiner from "../components/Spiner";
 import ErrorPage from "../components/ErrorPage";
 import Body from "../pages/Admin/Body";
 import AllAssignment from "../pages/Admin/Assignment/AllAssignment";
+import AboutUs from "../pages/page/AboutUs";
+import Blog from "../pages/page/blog";
 
 const Router = createBrowserRouter([
   {
@@ -38,6 +40,15 @@ const Router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+          {
+        path: "/blogs",
+        Component: Blog,
+        loader: () => fetch("/blogs.json"),
+      },
+      {
+        path: "/about-us",
+        Component: AboutUs,
       },
       {
         path: "/addassignment",

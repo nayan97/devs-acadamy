@@ -1,0 +1,26 @@
+[
+  {
+    "id": "78a91489a97b072009acdb1a",
+    "title": "Laravel 11 Release: Faster, Cleaner, and More Powerful",
+    "content": "Laravel 11 is here, bringing improved performance, a more expressive syntax, and built-in features for modern application development. The new release focuses on reducing boilerplate code, enhancing route handling, and making database migrations more intuitive. Upgrade today to experience a smoother developer workflow.",
+    "imageUrls": ["https://i.ibb.co/2Ykb0yjw/360-F-308697506-9ds-BYHXm9-Fwu-W0qc-Eqim-AEXUvz-Twfzwe.jpg", "https://i.ibb.co/5HLzckj/istockphoto-1399812399-2048x2048.jpg"],
+    "email": "nayangmail@gmail.com",
+    "createdAt": "2025-08-10T15:19:37.323+00:00"
+  },
+  {
+    "id": "78a91489a97b072009acdb2b",
+    "title": "React 19 Beta: New Hooks, Server Components, and More",
+    "content": "React 19 Beta has been announced, introducing exciting features like useOptimistic for improved UI state handling, enhanced Server Components for better SSR performance, and faster rendering optimizations. This release aims to simplify complex UI patterns while keeping apps lightning fast.",
+    "imageUrls": ["https://i.ibb.co/WvDL5SV3/In-App-Notification-Examples.png", "https://i.ibb.co/7d6Rq3DS/images-7.jpg"],
+    "email": "nayangmail@gmail.com",
+    "createdAt": "2025-08-10T15:19:37.323+00:00"
+  },
+  {
+    "id": "78a91489a97b072009acdb3c",
+    "title": "MySQL 9.0 Alpha Released: Smarter Queries, Less Latency",
+    "content": "The MySQL team has released version 9.0 Alpha, featuring AI-assisted query optimization, improved JSON handling, and significantly reduced latency for large datasets. These enhancements aim to provide better performance for high-traffic applications without compromising stability.",
+    "imageUrls": ["https://i.ibb.co/1Yz84W2K/cover.webp", "https://i.ibb.co/WW07VvXT/no-internet-connection.webp"],
+    "email": "nayangmail@gmail.com",
+    "createdAt": "2025-08-10T15:19:37.323+00:00"
+  }
+]
